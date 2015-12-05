@@ -13,7 +13,7 @@ var OnTheFride = ""
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UITabBarDelegate{
 
     var meals = [Meal]()
-    @IBOutlet weak var FridgeButton: UITabBarItem!
+  //  @IBOutlet weak var FridgeButton: UITabBarItem!
     @IBOutlet weak var NavigationTabBar: UITabBar!
     @IBOutlet weak var CVCollection: UICollectionView!
     var editStatu = false as Bool
@@ -41,8 +41,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             // Load the sample data.
             //  loadSampleMeals()
         }
-
     }
+    
 /// CHANGER LA COULEUR EN ROUGE ET APRES QUAN DON REVCHANGE LE STATU ON APELLE LA FONCTION POUR SUPRIMER DANS LE
     @IBAction func EditPressed(sender: AnyObject) {
         if editStatu == false{
@@ -151,7 +151,9 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
 
         cell.LabelCell.text = meal.name
         cell.ImageCell.image = meal.photo
-        cell.backgroundColor = UIColor.whiteColor()
+        if (OnTheFride.rangeOfString(meal.name) != nil){
+        cell.backgroundColor = UIColor.cyanColor()}
+        //cell.backgroundColor = UIColor.whiteColor()
              return cell
     }
     

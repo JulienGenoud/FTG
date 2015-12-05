@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tz4-2z-uQs">
-                                <rect key="frame" x="7" y="67" width="361" height="547"/>
+                                <rect key="frame" x="0.0" y="0.0" width="368" height="614"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="NVs-a7-5I1">
@@ -95,7 +95,6 @@
                     <connections>
                         <outlet property="CVCollection" destination="tz4-2z-uQs" id="FRy-uF-uh8"/>
                         <outlet property="EditButton" destination="rCw-J8-d0W" id="KaC-Dm-O1w"/>
-                        <outlet property="FridgeButton" destination="kzb-JT-FyR" id="uiy-Ch-eCs"/>
                         <outlet property="NavigationTabBar" destination="ivz-m5-feg" id="pJ3-fh-I7V"/>
                     </connections>
                 </viewController>
@@ -363,19 +362,19 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BTz-aS-JOn" customClass="AvailableButton" customModule="CollectionTraining" customModuleProvider="target">
-                                                    <rect key="frame" x="324" y="8.5" width="43" height="43.5"/>
+                                                    <rect key="frame" x="274" y="7" width="43" height="43.5"/>
                                                     <animations/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V0p-Mz-k5r">
-                                                    <rect key="frame" x="83" y="19" width="208" height="21"/>
+                                                    <rect key="frame" x="19" y="20" width="247" height="21"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eLI-25-8BY">
-                                                    <rect key="frame" x="14" y="7" width="42" height="43.5"/>
+                                                    <rect key="frame" x="316" y="8" width="42" height="43.5"/>
                                                     <animations/>
                                                 </imageView>
                                             </subviews>
@@ -441,15 +440,15 @@
                                     <outlet property="delegate" destination="Ih2-7g-lvR" id="wak-vJ-QND"/>
                                 </connections>
                             </tabBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6gA-aM-9Zr">
-                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sBe-zP-wn1">
+                                <rect key="frame" x="0.0" y="63" width="375" height="555"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="y8Z-xP-sBl">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="Cell" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="J5h-le-Xyt">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="y8Z-xP-sBl" id="IzD-it-nmT">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="J5h-le-Xyt" id="N66-hG-Ay1">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <animations/>
@@ -458,7 +457,8 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="delegate" destination="Ih2-7g-lvR" id="VkW-3i-azv"/>
+                                    <outlet property="dataSource" destination="Ih2-7g-lvR" id="Zve-re-zYA"/>
+                                    <outlet property="delegate" destination="Ih2-7g-lvR" id="mUD-ia-dRI"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -469,12 +469,12 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="NavigationTabBar" destination="VOO-Q8-OyC" id="0WG-Nc-nLZ"/>
-                        <outlet property="TheTableView" destination="6gA-aM-9Zr" id="rsb-tz-qm5"/>
+                        <outlet property="TheTableView" destination="sBe-zP-wn1" id="gNz-GO-plS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k9P-y9-EoM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2466.5" y="669.5"/>
+            <point key="canvasLocation" x="2452.5" y="609.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="NGO-XM-bOc">
@@ -564,6 +564,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="Zg1-Zd-zcO"/>
         <segue reference="QM9-iw-Stj"/>
-        <segue reference="Uq2-Do-0fr"/>
+        <segue reference="B3L-Xk-tlM"/>
     </inferredMetricsTieBreakers>
 </document>

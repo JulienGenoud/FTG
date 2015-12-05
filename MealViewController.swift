@@ -9,6 +9,7 @@
 import UIKit
 
 var selected = [String]()
+var DataTable = [String]()
 
 class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -101,6 +102,16 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
                 let photo1 = UIImage(named: "select2")
                 recipe = Recipe(name: name, available: true,
                     photo: photo1, ingredients: selected)
+                
+                if selected.count != 0 {
+                    IngredientText.text = ""
+                    for ingredients in selected {
+                        if OnTheFride.rangeOfString(ingredients) != nil{
+                        } else{
+                            DataTable.append(ingredients)
+                        }
+                    }
+                }
             }
             else {
                 let photo2 = UIImage(named: "select")
@@ -122,6 +133,7 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
             IngredientText.text = ""
             for ingredients in selected {
                 if OnTheFride.rangeOfString(ingredients) != nil{
+                    
                     IngredientText.text.appendContentsOf("- " + ingredients + "\n")
                 }
                 else {
