@@ -11,7 +11,6 @@ import UIKit
 class IngrendientAddView: UITableViewController {
     
     var meals = [Meal]()
-    var selected = [String]()
     
     override func viewDidLoad() {
     super.viewDidLoad()
@@ -52,6 +51,11 @@ class IngrendientAddView: UITableViewController {
         cell.nameLabel.text = meal.name
         cell.photoImageView.image = meal.photo
         
+        
+        if let index = selected.indexOf(meal.name) {
+            cell.accessoryType = UITableViewCellAccessoryType.Checkmark
+        }
+        
         if cell.selected
         {
             cell.selected = false
@@ -79,7 +83,9 @@ class IngrendientAddView: UITableViewController {
             cell!.selected = false
             if cell!.accessoryType == UITableViewCellAccessoryType.None
             {
-                selected.append(meal.name)
+                if selected.indexOf(meal.name) == nil {
+                    selected.append(meal.name)
+                }
                 cell!.accessoryType = UITableViewCellAccessoryType.Checkmark
             }
             else
@@ -95,10 +101,13 @@ class IngrendientAddView: UITableViewController {
     
     override func willMoveToParentViewController(parent: UIViewController?) {
         print("save current ingredients")
-        print(selected)
         if parent == nil {
             // Back btn Event handler
         }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        print("save segue")
     }
     
 //
