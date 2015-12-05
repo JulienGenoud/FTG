@@ -51,6 +51,11 @@ class IngrendientAddView: UITableViewController {
         cell.nameLabel.text = meal.name
         cell.photoImageView.image = meal.photo
         
+        
+        if let index = selected.indexOf(meal.name) {
+            cell.accessoryType = UITableViewCellAccessoryType.Checkmark
+        }
+        
         if cell.selected
         {
             cell.selected = false
@@ -78,7 +83,9 @@ class IngrendientAddView: UITableViewController {
             cell!.selected = false
             if cell!.accessoryType == UITableViewCellAccessoryType.None
             {
-                selected.append(meal.name)
+                if selected.indexOf(meal.name) == nil {
+                    selected.append(meal.name)
+                }
                 cell!.accessoryType = UITableViewCellAccessoryType.Checkmark
             }
             else

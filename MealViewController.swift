@@ -36,12 +36,23 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         if let recipe = recipe {
             navigationItem.title = recipe.name
             nameTextField.text   = recipe.name
+            selected = recipe.ingredients
             
             if recipe.ingredients.count == 0 {
                IngredientText.text = "no ingredients"
             }
+            print(OnTheFride)
+            print(OnTheFride.rangeOfString("efwe"))
+
             for ingredients in recipe.ingredients {
-                IngredientText.text.appendContentsOf("- " + ingredients + "\n")
+                if OnTheFride.rangeOfString(ingredients) != nil{
+                    IngredientText.text.appendContentsOf("- " + ingredients + " not availaible \n")
+                    print("exists")
+                }
+                else {
+                    IngredientText.text.appendContentsOf("- " + ingredients + "\n")
+                    print("exists")
+                }
             }
             
             IngredientText.sizeToFit()
@@ -103,21 +114,28 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         SaveButton.enabled = !text.isEmpty
     }
     
-  
-    @IBAction func Tap(sender: UITapGestureRecognizer) {
-        print("test")
-
-    }
-    
     override func viewWillAppear(animated: Bool) {
+        print(selected)
+        IngredientText.text = "Please add ingredients"
         if selected.count != 0 {
             IngredientText.text = ""
             for ingredients in selected {
-                IngredientText.text.appendContentsOf("- " + ingredients + "\n")
+                if OnTheFride.rangeOfString(ingredients) != nil{
+                    IngredientText.text.appendContentsOf("- " + ingredients + "\n")
+                }
+                else {
+                    IngredientText.text.appendContentsOf("- " + ingredients + "\n")
+                }
                 //recipe!.addIngredient(Meal(name: ingredients)!)
             }
         }
         
+    }
+    
+    
+    
+    override func willMoveToParentViewController(parent: UIViewController?) {
+        selected = [];
     }
 }
 

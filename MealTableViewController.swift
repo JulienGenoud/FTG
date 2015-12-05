@@ -42,7 +42,7 @@ class MealTableViewController: UIViewController, UITabBarDelegate, UITableViewDe
             recipes += savedMeals
         } else {
             // Load the sample data.
-            loadSampleMeals()
+            //loadSampleMeals()
         }
         
     
@@ -73,35 +73,6 @@ class MealTableViewController: UIViewController, UITabBarDelegate, UITableViewDe
             self.presentViewController(nc, animated: false, completion: nil)
         }
     }
-    
-    func loadSampleMeals() {
-        let photo1 = UIImage(named: "assite1")!
-        let meal1 = Recipe(name: "Caprese Salad", photo: photo1, available: true)!
-//        
-//        meal1.addIngredient(Meal(name: "carrot")!)
-//        meal1.addIngredient(Meal(name: "Pattate")!)
-//        meal1.addIngredient(Meal(name: "Pattate")!)
-//        meal1.addIngredient(Meal(name: "Pattate")!)
-//        meal1.addIngredient(Meal(name: "Pattate")!)
-//        meal1.addIngredient(Meal(name: "Pattate")!)
-//        meal1.addIngredient(Meal(name: "Pattate")!)
-//        meal1.addIngredient(Meal(name: "Pattate")!)
-//        meal1.addIngredient(Meal(name: "Pattate")!)
-//        meal1.addIngredient(Meal(name: "Pattate")!)
-//        meal1.addIngredient(Meal(name: "Pattate")!)
-//        meal1.addIngredient(Meal(name: "Pattate")!)
-//        meal1.addIngredient(Meal(name: "Pattate")!)
-
-        
-        let photo2 = UIImage(named: "assite1")!
-        let meal2 = Recipe(name: "Chicken and Potatoes", photo: photo2, available: false)!
-        
-        let photo3 = UIImage(named: "assite1")!
-        let meal3 = Recipe(name: "Pasta with Meatballs", photo: photo3, available: false)!
-        
-        recipes += [meal1, meal2, meal3]
-    }
-    
     
     func saveMeals() {
         let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(recipes, toFile: Recipe.ArchiveURL.path!)
@@ -190,6 +161,7 @@ class MealTableViewController: UIViewController, UITabBarDelegate, UITableViewDe
         if let sourceViewController = sender.sourceViewController as? MealViewController, meal = sourceViewController.recipe {
             if let selectedIndexPath = tableView.indexPathForSelectedRow {
                 // Update an existing meal.
+                print(meal)
                 recipes[selectedIndexPath.row] = meal
                 tableView.reloadRowsAtIndexPaths([selectedIndexPath], withRowAnimation: .None)
             } else {
