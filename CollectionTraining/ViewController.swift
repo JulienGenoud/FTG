@@ -17,6 +17,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     @IBOutlet weak var CVCollection: UICollectionView!
     var editStatu = false as Bool
     var OnTheFride = ""
+    var toDelete = [Int]()
     @IBOutlet weak var EditButton: UIBarButtonItem!
     
     override func viewDidLoad() {
@@ -41,15 +42,31 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         }
 
     }
-
+/// CHANGER LA COULEUR EN ROUGE ET APRES QUAN DON REVCHANGE LE STATU ON APELLE LA FONCTION POUR SUPRIMER DANS LE
     @IBAction func EditPressed(sender: AnyObject) {
         if editStatu == false{
-            EditButton.title = "End"
+            EditButton.title = "Delet"
             editStatu = true}
         else{
             EditButton.title = "Edit"
             editStatu = false}
-        print("\(editStatu)")
+//        print("il faut suprimer les elements numero : \(toDelete)")
+        toDelete = toDelete.sort()
+        toDelete = toDelete.reverse()
+          //  print("il faut suprimer les elements numero : \(toDelete)")
+            var x = 0
+        ///// CA MERDE JUSTE QUAND ON SELECTIONNE LE DERNIERE ELEMEN A SUPRIMER AVENT LA FIN
+        while (toDelete.count > x){
+        //    print("==========TAILLE DE MEALS LIST = \(meals.count)")
+      //      print("==========TAILLE DE delet LIST = \(toDelete.count)")
+    //        print("==========on suprime le truc a l'index \(toDelete[x])")
+            meals.removeAtIndex(toDelete[x])
+  //          print("-----------TAILLE DE MEALS LIST = \(meals.count)")
+            x++
+        }
+        toDelete = []
+        saveMeals()
+//        print("+++++++++++TO DELETE A ETE CLEAN \(toDelete.count)")
         CVCollection.reloadData()
     }
     override func didReceiveMemoryWarning() {
@@ -78,34 +95,24 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
     
     func loadMeals() -> [Meal]? {
-//        var m: Meal
-//        m = NSKeyedUnarchiver.unarchiveObjectWithFile(Meal.ArchiveURL.path!) as? Meal
-//        print("Nombre d'objet dans la table ====> \(m.count)")
         return NSKeyedUnarchiver.unarchiveObjectWithFile(Meal.ArchiveURL.path!) as? [Meal]
     }
     
     @IBAction func unwindToMealList(sender: UIStoryboardSegue) {
-//        CVCollection.reloadData();
         print("RETOUR PAR LE BOUTON SAVE")
         if let sourceViewController = sender.sourceViewController as? AddMeal, meal = sourceViewController.meal {
-//            if let selectedIndexPath = tableView.indexPathForSelectedRow {
-//                // Update an existing meal.
-//                meals[selectedIndexPath.row] = meal
-//            }
-//            else {
-                // Add a new meal.
                 let newIndexPath = NSIndexPath(forRow: meals.count, inSection: 0)
                 meals.append(meal)
-//            }
-            // Save the meals.
             saveMeals()
         }
         CVCollection.reloadData()
-       // viewDidLoad()
+    
     }
     
 /// MEAL DATA ///
+    
 /// TABBAR CONTROL
+    
     func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
         if (item.tag == 0){
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -126,7 +133,9 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             self.presentViewController(nc, animated: false, completion: nil)
         }
     }
+    
 /// TABABR CONTROL ///
+    
 /// COLECTION VIEW
 
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -134,70 +143,48 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         return meals.count
     }
     
-    func updateCollectionView(){
-//        print("LA TABLE A BIEN ETE MIS A JOUR ET IL Y A EFFECTIVEMENT UN TRUC A DELETE ")
-//        somethingBeDeleted = false
-//        var i = 0
-//        while (i < meals.count){
-//            let meal = meals[i]
-//            if ()
-//
-//            i++;
-//        }
-    }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell: MyCustonCellCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! MyCustonCellCollectionViewCell
         let meal = meals[indexPath.row]
 
-        
-//        if (cell.beDelet == true){
-//            somethingBeDeleted = true;
-            //            print("IL Y A UN TRUC A SUPRIMER LA !")
-//            // return cell
-//    print("SIZE DE LA TABLE MEALS: \(meals.count)")
-//            meals.removeAtIndex(indexPath.row - 1)
-////            print("La cellule numero :\(indexPath.row - 1)")
-//            saveMeals()
-//            print("SIZE DE LA TABLE MEALS: \(meals.count)")
-//
-////            print("qui comptien : \(meal.name)")
-//  //          CVCollection.reloadData()
-//        }
-
-        
-        
         cell.LabelCell.text = meal.name
         cell.ImageCell.image = meal.photo
-        if (editStatu == true){
-            cell.EditButton.hidden = false
-            cell.EraseButton.hidden = false
-        }
-        else{
-            cell.EditButton.hidden = true
-            cell.EraseButton.hidden = true
-        }
+        cell.backgroundColor = UIColor.whiteColor()
              return cell
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let cell = collectionView.cellForItemAtIndexPath(indexPath) as! UICollectionViewCell!
-        print("SOMETHING on the case number:\(indexPath.row)")
-        if (cell.backgroundColor != UIColor.cyanColor()){
-            OnTheFride = OnTheFride + meals[indexPath.row].name + ";"
-            cell.backgroundColor = UIColor.cyanColor()}
+    
+        if (editStatu == false){
+            print("SOMETHING on the case number:\(indexPath.row)")
+            if (cell.backgroundColor != UIColor.cyanColor()){
+                OnTheFride = OnTheFride + meals[indexPath.row].name + ";"
+                cell.backgroundColor = UIColor.cyanColor()}
+            else{
+                cell.backgroundColor = UIColor.whiteColor()
+                OnTheFride = OnTheFride.stringByReplacingOccurrencesOfString(meals[indexPath.row].name + ";", withString: "")}
+        }
         else{
-            cell.backgroundColor = UIColor.whiteColor()}
-        print("=====================================")
-        print(OnTheFride)
-        print("=====================================")
+            print("XXXXXXXXXXXXXXXXXXXXX EDIT STATUT EST ENCORE TRUE")
+            if (cell.backgroundColor == UIColor.redColor()){
+                var x = 0
+                while (toDelete[x] != indexPath.row){
+                    x++;
+                }
+                print("il faut suprimer l'element a la position \(x) du tableau")
+                toDelete.removeAtIndex(x)
+                print("NOMBRE DE CHOSE A SUPRIMER : \(toDelete.count)")
+                cell.backgroundColor = UIColor.whiteColor()}
+            else{
+                print("NOMBRE DE CHOSE A SUPRIMER : \(toDelete.count)")
+                toDelete.insert(indexPath.row , atIndex: 0)
+                print("nouvelle NOMBRE DE CHOSE A SUPRIMER : \(toDelete.count), un truc a ete ajouter a l'index : \(indexPath.row)")
+                cell.backgroundColor = UIColor.redColor()}
+        }
     }
-    
-//    func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
-//        let cell = collectionView.cellForItemAtIndexPath(indexPath) as! UICollectionViewCell!
-//        print("DANS LE SECOND")
-//    }
-    
 /// COLECTION VIEW ///
+    
 }
 
