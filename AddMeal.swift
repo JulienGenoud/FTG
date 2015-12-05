@@ -41,6 +41,7 @@ class AddMeal: UIViewController, UIImagePickerControllerDelegate, UINavigationCo
         return true;
     }
     /// INIT ///
+
     
     ///
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -52,7 +53,6 @@ class AddMeal: UIViewController, UIImagePickerControllerDelegate, UINavigationCo
         }
     }
 
-    
     func checkValidMealName() {
         // Disable the Save button if the text field is empty.
         let text = TFName.text ?? ""

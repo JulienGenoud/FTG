@@ -46,41 +46,12 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6dl-oN-fDG">
-                                                    <rect key="frame" x="70" y="0.0" width="40" height="30"/>
-                                                    <animations/>
-                                                    <color key="backgroundColor" red="1" green="0.18129286559999999" blue="0.082978345209999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <state key="normal" title="Erase">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="EraseButton:" destination="Cjv-hg-COE" eventType="touchUpInside" id="FQB-Q6-3la"/>
-                                                        <action selector="EraseMeal:" destination="FbB-Ji-gXq" eventType="touchUpInside" id="WPX-xl-J7b"/>
-                                                    </connections>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rij-wr-RaM">
-                                                    <rect key="frame" x="0.0" y="-1" width="40" height="30"/>
-                                                    <animations/>
-                                                    <color key="backgroundColor" red="0.0" green="0.86586538461538465" blue="0.10724612952017167" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <state key="normal" title="Edit">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="EditButton:" destination="Cjv-hg-COE" eventType="touchUpInside" id="4O8-9e-1RN"/>
-                                                        <action selector="EditMeal:" destination="FbB-Ji-gXq" eventType="touchUpInside" id="qLI-hd-aQb"/>
-                                                    </connections>
-                                                </button>
                                             </subviews>
                                             <animations/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <animations/>
                                         <connections>
-                                            <outlet property="EditButton" destination="rij-wr-RaM" id="0Wz-Nq-1sE"/>
-                                            <outlet property="EraseButton" destination="6dl-oN-fDG" id="cMn-G0-BjD"/>
                                             <outlet property="ImageCell" destination="7IY-46-l1d" id="2Cx-DV-fbY"/>
                                             <outlet property="LabelCell" destination="qjY-Fd-mlD" id="qPA-nL-sC6"/>
                                         </connections>
@@ -156,7 +127,7 @@
                                 <animations/>
                                 <gestureRecognizers/>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="cAk-Cx-EYq" appends="YES" id="u3d-cA-IAk"/>
+                                    <outletCollection property="gestureRecognizers" destination="CQO-YC-cZr" appends="YES" id="vQU-Ar-3Tg"/>
                                 </connections>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RfY-6l-PbF">
@@ -195,9 +166,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0h5-yI-8gf" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="wdg-9Q-eSR" userLabel="Exit" sceneMemberID="exit"/>
-                <tapGestureRecognizer id="cAk-Cx-EYq">
+                <tapGestureRecognizer id="CQO-YC-cZr">
                     <connections>
-                        <action selector="ChooseImage:" destination="2XR-yy-VCU" id="qn9-1q-5Jh"/>
+                        <action selector="ChooseImage:" destination="2XR-yy-VCU" id="cgd-Aw-GCV"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -381,7 +352,7 @@
                                                     <rect key="frame" x="83" y="19" width="208" height="21"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eLI-25-8BY">
