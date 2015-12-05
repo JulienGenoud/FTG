@@ -11,7 +11,6 @@ import UIKit
 class IngrendientAddView: UITableViewController {
     
     var meals = [Meal]()
-    var selected = [String]()
     
     override func viewDidLoad() {
     super.viewDidLoad()
@@ -95,10 +94,13 @@ class IngrendientAddView: UITableViewController {
     
     override func willMoveToParentViewController(parent: UIViewController?) {
         print("save current ingredients")
-        print(selected)
         if parent == nil {
             // Back btn Event handler
         }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        print("save segue")
     }
     
 //

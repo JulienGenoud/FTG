@@ -8,6 +8,8 @@
 
 import UIKit
 
+var selected = [String]()
+
 class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     
@@ -27,8 +29,9 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         super.viewDidLoad()
         nameTextField.delegate = self
         print("test")
+        print(selected)
 
-        
+        selected.removeAll()
       
         if let recipe = recipe {
             navigationItem.title = recipe.name
@@ -38,7 +41,7 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
                IngredientText.text = "no ingredients"
             }
             for ingredients in recipe.ingredients {
-            IngredientText.text.appendContentsOf("- " + ingredients.name + "\n")
+                IngredientText.text.appendContentsOf("- " + ingredients + "\n")
             }
             
             IngredientText.sizeToFit()
@@ -90,7 +93,8 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
 //            let photo = photoImageView.image
 //            let rating = ratingControl.rating
             
-            recipe = Recipe(name: name, available: true)
+            recipe = Recipe(name: name, available: true, ingredients: selected)
+            
         }
     }
     
@@ -104,7 +108,16 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         print("test")
 
     }
-
     
+    override func viewWillAppear(animated: Bool) {
+        if selected.count != 0 {
+            IngredientText.text = ""
+            for ingredients in selected {
+                IngredientText.text.appendContentsOf("- " + ingredients + "\n")
+                //recipe!.addIngredient(Meal(name: ingredients)!)
+            }
+        }
+        
+    }
 }
 

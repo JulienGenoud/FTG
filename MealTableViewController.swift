@@ -77,20 +77,20 @@ class MealTableViewController: UIViewController, UITabBarDelegate, UITableViewDe
     func loadSampleMeals() {
         let photo1 = UIImage(named: "assite1")!
         let meal1 = Recipe(name: "Caprese Salad", photo: photo1, available: true)!
-        
-        meal1.addIngredient(Meal(name: "carrot")!)
-        meal1.addIngredient(Meal(name: "Pattate")!)
-        meal1.addIngredient(Meal(name: "Pattate")!)
-        meal1.addIngredient(Meal(name: "Pattate")!)
-        meal1.addIngredient(Meal(name: "Pattate")!)
-        meal1.addIngredient(Meal(name: "Pattate")!)
-        meal1.addIngredient(Meal(name: "Pattate")!)
-        meal1.addIngredient(Meal(name: "Pattate")!)
-        meal1.addIngredient(Meal(name: "Pattate")!)
-        meal1.addIngredient(Meal(name: "Pattate")!)
-        meal1.addIngredient(Meal(name: "Pattate")!)
-        meal1.addIngredient(Meal(name: "Pattate")!)
-        meal1.addIngredient(Meal(name: "Pattate")!)
+//        
+//        meal1.addIngredient(Meal(name: "carrot")!)
+//        meal1.addIngredient(Meal(name: "Pattate")!)
+//        meal1.addIngredient(Meal(name: "Pattate")!)
+//        meal1.addIngredient(Meal(name: "Pattate")!)
+//        meal1.addIngredient(Meal(name: "Pattate")!)
+//        meal1.addIngredient(Meal(name: "Pattate")!)
+//        meal1.addIngredient(Meal(name: "Pattate")!)
+//        meal1.addIngredient(Meal(name: "Pattate")!)
+//        meal1.addIngredient(Meal(name: "Pattate")!)
+//        meal1.addIngredient(Meal(name: "Pattate")!)
+//        meal1.addIngredient(Meal(name: "Pattate")!)
+//        meal1.addIngredient(Meal(name: "Pattate")!)
+//        meal1.addIngredient(Meal(name: "Pattate")!)
 
         
         let photo2 = UIImage(named: "assite1")!

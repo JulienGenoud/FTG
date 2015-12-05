@@ -529,8 +529,8 @@
         <image name="shop" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="QM9-iw-Stj"/>
         <segue reference="Zg1-Zd-zcO"/>
-        <segue reference="B3L-Xk-tlM"/>
+        <segue reference="QM9-iw-Stj"/>
+        <segue reference="Uq2-Do-0fr"/>
     </inferredMetricsTieBreakers>
 </document>

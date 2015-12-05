@@ -11,7 +11,7 @@ import UIKit
 class Recipe : NSObject, NSCoding {
     var name: String
     var photo: UIImage?
-    var ingredients: [Meal]
+    var ingredients: [String]
     var available: Bool
     
     init?(name: String, photo: UIImage?, available: Bool) {
@@ -41,10 +41,24 @@ class Recipe : NSObject, NSCoding {
         }
     }
     
-    
-    func addIngredient(ingredient: Meal) {
-        self.ingredients.append(ingredient);
+    init?(name: String, available: Bool, ingredients: [String]) {
+        // Initialize stored properties.
+        self.name = name
+        self.available = available
+        self.ingredients = ingredients
+        super.init()
+        
+        // Initialization should fail if there is no name or if the rating is negative.
+        if name.isEmpty {
+            return nil
+        }
     }
+    
+   
+    
+//    func addIngredient(ingredient: Meal) {
+//        self.ingredients.append(ingredient);
+//    }
     
     struct PropertyKey {
         static let nameKey = "name"
