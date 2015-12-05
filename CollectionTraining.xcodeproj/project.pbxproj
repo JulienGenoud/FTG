@@ -13,6 +13,8 @@
 		4559A1651C129145002BB3BE /* MealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4559A1641C129145002BB3BE /* MealViewController.swift */; };
 		4559A1671C12CCD8002BB3BE /* IngrendientAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4559A1661C12CCD8002BB3BE /* IngrendientAddView.swift */; };
 		4559A1691C12CE5C002BB3BE /* IngredientAddTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4559A1681C12CE5C002BB3BE /* IngredientAddTableViewCell.swift */; };
+		4559A16C1C1328E4002BB3BE /* select.png in Resources */ = {isa = PBXBuildFile; fileRef = 4559A16A1C1328E4002BB3BE /* select.png */; };
+		4559A16D1C1328E4002BB3BE /* select2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4559A16B1C1328E4002BB3BE /* select2.png */; };
 		513121F21C1037660014E60B /* icon in Resources */ = {isa = PBXBuildFile; fileRef = 513121F11C1037660014E60B /* icon */; };
 		513121F41C1039CD0014E60B /* MealTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513121F31C1039CC0014E60B /* MealTableViewController.swift */; };
 		513121F61C1039DB0014E60B /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513121F51C1039DB0014E60B /* ShopViewController.swift */; };
@@ -75,6 +77,8 @@
 		4559A1641C129145002BB3BE /* MealViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealViewController.swift; sourceTree = "<group>"; };
 		4559A1661C12CCD8002BB3BE /* IngrendientAddView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngrendientAddView.swift; sourceTree = "<group>"; };
 		4559A1681C12CE5C002BB3BE /* IngredientAddTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientAddTableViewCell.swift; sourceTree = "<group>"; };
+		4559A16A1C1328E4002BB3BE /* select.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = select.png; sourceTree = "<group>"; };
+		4559A16B1C1328E4002BB3BE /* select2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = select2.png; sourceTree = "<group>"; };
 		513121F11C1037660014E60B /* icon */ = {isa = PBXFileReference; lastKnownFileType = folder; path = icon; sourceTree = "<group>"; };
 		513121F31C1039CC0014E60B /* MealTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealTableViewController.swift; sourceTree = "<group>"; };
 		513121F51C1039DB0014E60B /* ShopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
@@ -200,6 +204,8 @@
 		51FF68AD1C03E5E400CB8EF9 /* Ressources */ = {
 			isa = PBXGroup;
 			children = (
+				4559A16A1C1328E4002BB3BE /* select.png */,
+				4559A16B1C1328E4002BB3BE /* select2.png */,
 				51C587E51C111E9B009F1A8D /* defaultPhoto.png */,
 				513121F11C1037660014E60B /* icon */,
 				51FF68CC1C03E62700CB8EF9 /* Ingredient1.png */,
@@ -252,12 +258,12 @@
 				513121F31C1039CC0014E60B /* MealTableViewController.swift */,
 				51C587E71C112207009F1A8D /* Meal.swift */,
 				513121F51C1039DB0014E60B /* ShopViewController.swift */,
-				4559A15A1C1125A9002BB3BE /* RecipeTableViewCell.swift */,
-				4559A15C1C1126B3002BB3BE /* AvailableButton.swift */,
 				4559A1601C11291B002BB3BE /* Recipe.swift */,
+				4559A15A1C1125A9002BB3BE /* RecipeTableViewCell.swift */,
 				4559A1641C129145002BB3BE /* MealViewController.swift */,
-				4559A1661C12CCD8002BB3BE /* IngrendientAddView.swift */,
+				4559A15C1C1126B3002BB3BE /* AvailableButton.swift */,
 				4559A1681C12CE5C002BB3BE /* IngredientAddTableViewCell.swift */,
+				4559A1661C12CCD8002BB3BE /* IngrendientAddView.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -374,7 +380,9 @@
 				51FF68EB1C03F61D00CB8EF9 /* GalleryItemCommentView.xib in Resources */,
 				5134E0BF1C057C8A009F3E24 /* Ingredient18.jpg in Resources */,
 				5134E0BE1C057C8A009F3E24 /* Ingredient17.jpg in Resources */,
+				4559A16D1C1328E4002BB3BE /* select2.png in Resources */,
 				51FF68DE1C03E62700CB8EF9 /* Ingredient4.jpg in Resources */,
+				4559A16C1C1328E4002BB3BE /* select.png in Resources */,
 				51FF68DD1C03E62700CB8EF9 /* Ingredient3.JPG in Resources */,
 				51FF68E41C03E62700CB8EF9 /* Ingredient10.jpg in Resources */,
 				51FF68E81C03E62700CB8EF9 /* Ingredient14.jpg in Resources */,

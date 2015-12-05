@@ -261,15 +261,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Please add ingredients" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="mQA-ik-fid">
-                                <rect key="frame" x="57" y="145" width="240" height="389"/>
-                                <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KVd-ir-lBj">
-                                <rect key="frame" x="92" y="542" width="190" height="64"/>
+                                <rect key="frame" x="92" y="483" width="190" height="64"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <state key="normal" title="Edit Ingredients"/>
@@ -277,6 +270,31 @@
                                     <segue destination="bQd-ts-6JU" kind="show" id="Zg1-Zd-zcO"/>
                                 </connections>
                             </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hbo-vw-kgh">
+                                <rect key="frame" x="248" y="566" width="51" height="31"/>
+                                <animations/>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="* Not in the fridge" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="03l-Qa-qNR">
+                                <rect key="frame" x="57" y="140" width="240" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Shopping List" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gf7-6x-VS0">
+                                <rect key="frame" x="92" y="566" width="142" height="31"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Please add ingredients" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="mQA-ik-fid">
+                                <rect key="frame" x="57" y="164" width="240" height="322"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -292,6 +310,7 @@
                         <outlet property="EditIngredients" destination="KVd-ir-lBj" id="2kY-w8-uQs"/>
                         <outlet property="IngredientText" destination="mQA-ik-fid" id="MUN-r0-Ezh"/>
                         <outlet property="SaveButton" destination="Vi2-Nh-FCt" id="Y2Y-qj-LoA"/>
+                        <outlet property="Shopping" destination="hbo-vw-kgh" id="5vv-uB-iA5"/>
                         <outlet property="mealNameLabel" destination="YUZ-V6-hyz" id="Sce-el-upO"/>
                         <outlet property="nameTextField" destination="WEU-kb-QJU" id="07D-lW-ApI"/>
                     </connections>

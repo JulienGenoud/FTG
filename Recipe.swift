@@ -41,9 +41,10 @@ class Recipe : NSObject, NSCoding {
         }
     }
     
-    init?(name: String, available: Bool, ingredients: [String]) {
+    init?(name: String, available: Bool, photo: UIImage?,ingredients: [String]) {
         // Initialize stored properties.
         self.name = name
+        self.photo = photo
         self.available = available
         self.ingredients = ingredients
         super.init()
@@ -76,13 +77,13 @@ class Recipe : NSObject, NSCoding {
         let name = aDecoder.decodeObjectForKey(PropertyKey.nameKey) as! String
         
         // Because photo is an optional property of Meal, use conditional cast.
-//        let photo = aDecoder.decodeObjectForKey(PropertyKey.photoKey) as? UIImage
+        let photo = aDecoder.decodeObjectForKey(PropertyKey.photoKey) as? UIImage
         
         let ingredients = aDecoder.decodeObjectForKey(PropertyKey.ingredientsKey) as! [String]
         
         let available = false
         // Must call designated initializer.
-        self.init(name: name, available: available, ingredients: ingredients)
+        self.init(name: name, available: available, photo: photo, ingredients: ingredients)
     }
     
     static let DocumentsDirectory = NSFileManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!

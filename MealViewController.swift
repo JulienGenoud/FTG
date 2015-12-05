@@ -20,6 +20,7 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     @IBOutlet weak var SaveButton: UIBarButtonItem!
     @IBOutlet weak var EditIngredients: UIButton!
     @IBOutlet weak var IngredientText: UITextView!
+    @IBOutlet weak var Shopping: UISwitch!
 //    @IBOutlet weak var ratingControl: RatingControl!
     
     
@@ -46,20 +47,14 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
 
             for ingredients in recipe.ingredients {
                 if OnTheFride.rangeOfString(ingredients) != nil{
-                    IngredientText.text.appendContentsOf("- " + ingredients + " not availaible \n")
-                    print("exists")
+                    IngredientText.text.appendContentsOf("- " + ingredients + "\n")
                 }
                 else {
-                    IngredientText.text.appendContentsOf("- " + ingredients + "\n")
-                    print("exists")
+                    IngredientText.text.appendContentsOf("* " + ingredients + " *\n")
                 }
             }
             
             IngredientText.sizeToFit()
-
-            
-//            photoImageView.image = recipe.photo
-//            ratingControl.rating = meal.rating
         } else {
             IngredientText.text = "no ingredients"
         }
@@ -101,11 +96,17 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if SaveButton === sender {
             let name = nameTextField.text ?? ""
-//            let photo = photoImageView.image
-//            let rating = ratingControl.rating
             
-            recipe = Recipe(name: name, available: true, ingredients: selected)
-            
+            if Shopping.on {
+                let photo1 = UIImage(named: "select2")
+                recipe = Recipe(name: name, available: true,
+                    photo: photo1, ingredients: selected)
+            }
+            else {
+                let photo2 = UIImage(named: "select")
+                recipe = Recipe(name: name, available: true,
+                    photo: photo2, ingredients: selected)
+            }
         }
     }
     
@@ -124,7 +125,7 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
                     IngredientText.text.appendContentsOf("- " + ingredients + "\n")
                 }
                 else {
-                    IngredientText.text.appendContentsOf("- " + ingredients + "\n")
+                    IngredientText.text.appendContentsOf("* " + ingredients + "\n")
                 }
                 //recipe!.addIngredient(Meal(name: ingredients)!)
             }
