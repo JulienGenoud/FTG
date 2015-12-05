@@ -8,9 +8,12 @@
 
 import UIKit
 
-class ShopViewController: UIViewController, UITabBarDelegate {
+class ShopViewController: UIViewController, UITabBarDelegate, UITableViewDataSource, UITableViewDelegate {
+    
+    var DataTable: [String] = ["xxx1", "xxx2", "xxx3","xxx4","xxx5","xxx6","xxx7","xxx8","xxx9","xxx10","xxx11","xxx12","xxx13","xxx14","xxx15","xxx16","xxx17","xxx18","xxx19","xxx20"]
     
     @IBOutlet weak var NavigationTabBar: UITabBar!
+    @IBOutlet weak var TheTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,11 +24,46 @@ class ShopViewController: UIViewController, UITabBarDelegate {
         let mutiply = itemWidth * CGFloat(itemIndex);
         let bgView = UIView(frame: CGRectMake(mutiply, 0, itemWidth, NavigationTabBar.frame.height))
         bgView.backgroundColor = bgColor
-        
+        TheTableView.delegate = self
         
         NavigationTabBar.insertSubview(bgView, atIndex: 2)
     }
 
+    /// TABLE VIEW
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("\(DataTable.count)")
+        return DataTable.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        // Table view cells are reused and should be dequeued using a cell identifier.
+
+        print("DODODODODO")
+        let cell = tableView.cellForRowAtIndexPath(indexPath) as! UITableViewCell!
+        
+        // Fetches the appropriate meal for the data source layout.
+        cell.textLabel?.text = DataTable[indexPath.row]
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            // Delete the row from the data source
+//            meals.removeAtIndex(indexPath.row)
+//            saveMeals()
+//            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        } else if editingStyle == .Insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        }
+    }
+    
+    
+    /// TABLE VIEW ///
     
     /// TABBAR CONTROL
     func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {

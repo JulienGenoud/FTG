@@ -8,6 +8,7 @@
 
 import UIKit
 
+var OnTheFride = ""
 
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UITabBarDelegate{
 
@@ -16,7 +17,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     @IBOutlet weak var NavigationTabBar: UITabBar!
     @IBOutlet weak var CVCollection: UICollectionView!
     var editStatu = false as Bool
-    var OnTheFride = ""
+    //var OnTheFride = ""
     var toDelete = [Int]()
     @IBOutlet weak var EditButton: UIBarButtonItem!
     

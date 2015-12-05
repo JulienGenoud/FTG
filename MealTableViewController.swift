@@ -23,6 +23,9 @@ class MealTableViewController: UIViewController, UITabBarDelegate, UITableViewDe
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        
+        print("DANS MEAL VIEW ==>\(OnTheFride)")
+
 
         let itemIndex = 1
         let bgColor = UIColor(red: 0.07, green: 0.4, blue: 0.9, alpha: 0.2)
