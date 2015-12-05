@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4559A15B1C1125A9002BB3BE /* RecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4559A15A1C1125A9002BB3BE /* RecipeTableViewCell.swift */; };
+		4559A15D1C1126B3002BB3BE /* AvailableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4559A15C1C1126B3002BB3BE /* AvailableButton.swift */; };
+		4559A15F1C1127B7002BB3BE /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4559A15E1C1127B7002BB3BE /* RecipeViewController.swift */; };
+		4559A1611C11291B002BB3BE /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4559A1601C11291B002BB3BE /* Recipe.swift */; };
 		513121F21C1037660014E60B /* icon in Resources */ = {isa = PBXBuildFile; fileRef = 513121F11C1037660014E60B /* icon */; };
 		513121F41C1039CD0014E60B /* MealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513121F31C1039CC0014E60B /* MealViewController.swift */; };
 		513121F61C1039DB0014E60B /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513121F51C1039DB0014E60B /* ShopViewController.swift */; };
@@ -60,6 +64,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4559A15A1C1125A9002BB3BE /* RecipeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeTableViewCell.swift; sourceTree = "<group>"; };
+		4559A15C1C1126B3002BB3BE /* AvailableButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvailableButton.swift; sourceTree = "<group>"; };
+		4559A15E1C1127B7002BB3BE /* RecipeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
+		4559A1601C11291B002BB3BE /* Recipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		513121F11C1037660014E60B /* icon */ = {isa = PBXFileReference; lastKnownFileType = folder; path = icon; sourceTree = "<group>"; };
 		513121F31C1039CC0014E60B /* MealViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealViewController.swift; sourceTree = "<group>"; };
 		513121F51C1039DB0014E60B /* ShopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
@@ -231,6 +239,10 @@
 				51DD0B761C032B7100FF3C5C /* ViewController.swift */,
 				513121F31C1039CC0014E60B /* MealViewController.swift */,
 				513121F51C1039DB0014E60B /* ShopViewController.swift */,
+				4559A15A1C1125A9002BB3BE /* RecipeTableViewCell.swift */,
+				4559A15C1C1126B3002BB3BE /* AvailableButton.swift */,
+				4559A15E1C1127B7002BB3BE /* RecipeViewController.swift */,
+				4559A1601C11291B002BB3BE /* Recipe.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -390,10 +402,14 @@
 			files = (
 				5134E0B71C057183009F3E24 /* MyCustonCellCollectionViewCell.swift in Sources */,
 				513121F41C1039CD0014E60B /* MealViewController.swift in Sources */,
+				4559A15F1C1127B7002BB3BE /* RecipeViewController.swift in Sources */,
 				513121F61C1039DB0014E60B /* ShopViewController.swift in Sources */,
+				4559A15B1C1125A9002BB3BE /* RecipeTableViewCell.swift in Sources */,
 				51DD0B7D1C032B7100FF3C5C /* CollectionTraining.xcdatamodeld in Sources */,
+				4559A15D1C1126B3002BB3BE /* AvailableButton.swift in Sources */,
 				51DD0B771C032B7100FF3C5C /* ViewController.swift in Sources */,
 				51DD0B751C032B7100FF3C5C /* AppDelegate.swift in Sources */,
+				4559A1611C11291B002BB3BE /* Recipe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
