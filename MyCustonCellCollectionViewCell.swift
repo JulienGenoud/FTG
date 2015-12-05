@@ -12,18 +12,31 @@ class MyCustonCellCollectionViewCell: UICollectionViewCell, UICollectionViewDele
     
     @IBOutlet weak var ImageCell: UIImageView!
     @IBOutlet weak var LabelCell: UILabel!
-
+    @IBOutlet weak var EditButton: UIButton!
+    @IBOutlet weak var EraseButton: UIButton!
+    var beDelet = false
+    var beSelected = false
+    
     required init?(coder aDecoder: NSCoder) {
-        //backgroundColor = UIColor.redColor()
+//        backgroundColor = UIColor.whiteColor()
         //print("dans init requiered")
         super.init(coder: aDecoder)
     }
     
     override func awakeFromNib() {
 //        print("dans awakefromnib")
-        self.backgroundColor = UIColor.redColor()
+        self.backgroundColor = UIColor.whiteColor()
         super.awakeFromNib()
         // Initialization code
+    }
+    
+    @IBAction func EraseMeal(sender: AnyObject) {
+        print(" MCCCV ====> Je veut erase \(LabelCell.text)")
+        beDelet = true
+    }
+    
+    @IBAction func EditMeal(sender: AnyObject) {
+        print("Je veut edite \(LabelCell.text)")
     }
     
 //init(frame: CGRect) {

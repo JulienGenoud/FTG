@@ -46,12 +46,41 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6dl-oN-fDG">
+                                                    <rect key="frame" x="70" y="0.0" width="40" height="30"/>
+                                                    <animations/>
+                                                    <color key="backgroundColor" red="1" green="0.18129286559999999" blue="0.082978345209999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <state key="normal" title="Erase">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="EraseButton:" destination="Cjv-hg-COE" eventType="touchUpInside" id="FQB-Q6-3la"/>
+                                                        <action selector="EraseMeal:" destination="FbB-Ji-gXq" eventType="touchUpInside" id="WPX-xl-J7b"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rij-wr-RaM">
+                                                    <rect key="frame" x="0.0" y="-1" width="40" height="30"/>
+                                                    <animations/>
+                                                    <color key="backgroundColor" red="0.0" green="0.86586538461538465" blue="0.10724612952017167" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <state key="normal" title="Edit">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="EditButton:" destination="Cjv-hg-COE" eventType="touchUpInside" id="4O8-9e-1RN"/>
+                                                        <action selector="EditMeal:" destination="FbB-Ji-gXq" eventType="touchUpInside" id="qLI-hd-aQb"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <animations/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <animations/>
                                         <connections>
+                                            <outlet property="EditButton" destination="rij-wr-RaM" id="0Wz-Nq-1sE"/>
+                                            <outlet property="EraseButton" destination="6dl-oN-fDG" id="cMn-G0-BjD"/>
                                             <outlet property="ImageCell" destination="7IY-46-l1d" id="2Cx-DV-fbY"/>
                                             <outlet property="LabelCell" destination="qjY-Fd-mlD" id="qPA-nL-sC6"/>
                                         </connections>
@@ -80,6 +109,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="What's on your fridge ?" id="MyK-hm-K8R">
+                        <barButtonItem key="leftBarButtonItem" title="Edit" id="rCw-J8-d0W">
+                            <connections>
+                                <action selector="EditPressed:" destination="Cjv-hg-COE" id="9TM-Zb-Rc3"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="5qh-MZ-62q">
                             <connections>
                                 <segue destination="2XR-yy-VCU" kind="show" id="B3L-Xk-tlM"/>
@@ -88,6 +122,8 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="CVCollection" destination="tz4-2z-uQs" id="FRy-uF-uh8"/>
+                        <outlet property="EditButton" destination="rCw-J8-d0W" id="KaC-Dm-O1w"/>
                         <outlet property="FridgeButton" destination="kzb-JT-FyR" id="uiy-Ch-eCs"/>
                         <outlet property="NavigationTabBar" destination="ivz-m5-feg" id="pJ3-fh-I7V"/>
                     </connections>
@@ -99,7 +135,7 @@
         <!--Define an ingredient-->
         <scene sceneID="3Kf-e0-IeD">
             <objects>
-                <viewController id="2XR-yy-VCU" sceneMemberID="viewController">
+                <viewController id="2XR-yy-VCU" customClass="AddMeal" customModule="CollectionTraining" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dZy-el-OrC"/>
                         <viewControllerLayoutGuide type="bottom" id="F5v-bQ-BYG"/>
@@ -107,15 +143,63 @@
                     <view key="view" contentMode="scaleToFill" id="COZ-F5-CZE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Choose one picture :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Adc-5f-8Cj">
+                                <rect key="frame" x="42" y="250" width="258" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="sb7-xD-3U2">
+                                <rect key="frame" x="42" y="279" width="291" height="260"/>
+                                <animations/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="cAk-Cx-EYq" appends="YES" id="u3d-cA-IAk"/>
+                                </connections>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RfY-6l-PbF">
+                                <rect key="frame" x="42" y="163" width="291" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="2XR-yy-VCU" id="AU7-GR-NhY"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KTq-qp-bTl">
+                                <rect key="frame" x="42" y="130" width="170" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Define an ingredient" id="6rH-wc-T6u">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="NFz-mz-aqo"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="NFz-mz-aqo">
+                            <connections>
+                                <segue destination="wdg-9Q-eSR" kind="unwind" unwindAction="unwindToMealList:" id="y57-t5-gaq"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="IVPhoto" destination="sb7-xD-3U2" id="JSN-Vc-eVD"/>
+                        <outlet property="SaveButton" destination="NFz-mz-aqo" id="n1t-xx-ei6"/>
+                        <outlet property="TFName" destination="RfY-6l-PbF" id="OCj-u6-z24"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0h5-yI-8gf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="wdg-9Q-eSR" userLabel="Exit" sceneMemberID="exit"/>
+                <tapGestureRecognizer id="cAk-Cx-EYq">
+                    <connections>
+                        <action selector="ChooseImage:" destination="2XR-yy-VCU" id="qn9-1q-5Jh"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="654.5" y="-248.5"/>
         </scene>
@@ -166,27 +250,43 @@
                                     <outlet property="delegate" destination="6fQ-05-ddN" id="xUw-On-c0V"/>
                                 </connections>
                             </tabBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wuy-Qc-bzA">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="63" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wuy-Qc-bzA">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RecipeTableViewCell" id="Ype-Nh-x8g" customClass="RecipeTableViewCell" customModule="CollectionTraining" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RecipeTableViewCell" rowHeight="63" id="Ype-Nh-x8g" customClass="RecipeTableViewCell" customModule="CollectionTraining" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="63"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ype-Nh-x8g" id="cf3-Cg-taD">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="62.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BTz-aS-JOn" customClass="AvailableButton" customModule="CollectionTraining" customModuleProvider="target">
-                                                    <rect key="frame" x="332" y="0.0" width="43" height="43.5"/>
+                                                    <rect key="frame" x="324" y="8.5" width="43" height="43.5"/>
                                                     <animations/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V0p-Mz-k5r">
+                                                    <rect key="frame" x="83" y="19" width="208" height="21"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eLI-25-8BY">
+                                                    <rect key="frame" x="14" y="7" width="42" height="43.5"/>
+                                                    <animations/>
+                                                </imageView>
                                             </subviews>
                                             <animations/>
                                         </tableViewCellContentView>
                                         <animations/>
+                                        <connections>
+                                            <outlet property="availableButton" destination="BTz-aS-JOn" id="yIO-3U-cM9"/>
+                                            <outlet property="nameLabel" destination="V0p-Mz-k5r" id="ecN-08-fCM"/>
+                                            <outlet property="photoImageView" destination="eLI-25-8BY" id="fIY-0B-ipQ"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -342,6 +442,7 @@
     </scenes>
     <resources>
         <image name="assite" width="25" height="25"/>
+        <image name="defaultPhoto" width="1080" height="1080"/>
         <image name="frig" width="25" height="25"/>
         <image name="shop" width="25" height="25"/>
     </resources>
