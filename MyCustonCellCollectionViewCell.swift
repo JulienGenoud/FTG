@@ -23,7 +23,7 @@ class MyCustonCellCollectionViewCell: UICollectionViewCell, UICollectionViewDele
     
     override func awakeFromNib() {
 //        print("dans awakefromnib")
-        self.backgroundColor = UIColor.whiteColor()
+       // self.backgroundColor = UIColor.whiteColor()
         super.awakeFromNib()
         // Initialization code
     }

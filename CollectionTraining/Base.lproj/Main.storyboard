@@ -439,7 +439,7 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="delegate" destination="Ih2-7g-lvR" id="VkW-3i-azv"/>
+                                    <outlet property="delegate" destination="Ih2-7g-lvR" id="AF3-PO-8ax"/>
                                 </connections>
                             </tableView>
                         </subviews>

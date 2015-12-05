@@ -41,8 +41,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             // Load the sample data.
             //  loadSampleMeals()
         }
-
     }
+    
 /// CHANGER LA COULEUR EN ROUGE ET APRES QUAN DON REVCHANGE LE STATU ON APELLE LA FONCTION POUR SUPRIMER DANS LE
     @IBAction func EditPressed(sender: AnyObject) {
         if editStatu == false{
@@ -151,7 +151,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
 
         cell.LabelCell.text = meal.name
         cell.ImageCell.image = meal.photo
-        cell.backgroundColor = UIColor.whiteColor()
+
+  //        cell.backgroundColor = UIColor.whiteColor()
              return cell
     }
     
