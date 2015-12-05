@@ -153,8 +153,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         cell.ImageCell.image = meal.photo
         if (OnTheFride.rangeOfString(meal.name) != nil){
         cell.backgroundColor = UIColor.cyanColor()}
-        
-  //        cell.backgroundColor = UIColor.whiteColor()
+        //cell.backgroundColor = UIColor.whiteColor()
              return cell
     }
     
