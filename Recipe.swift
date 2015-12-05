@@ -11,6 +11,7 @@ import UIKit
 class Recipe : NSObject, NSCoding {
     var name: String
     var photo: UIImage?
+    var ingredients: [Meal]
     var available: Bool
     
     init?(name: String, photo: UIImage?, available: Bool) {
@@ -18,6 +19,20 @@ class Recipe : NSObject, NSCoding {
         self.name = name
         self.photo = photo
         self.available = available
+        self.ingredients = []
+        super.init()
+        
+        // Initialization should fail if there is no name or if the rating is negative.
+        if name.isEmpty {
+            return nil
+        }
+    }
+    
+    init?(name: String, available: Bool) {
+        // Initialize stored properties.
+        self.name = name
+        self.available = available
+        self.ingredients = []
         super.init()
         
         // Initialization should fail if there is no name or if the rating is negative.
@@ -27,6 +42,9 @@ class Recipe : NSObject, NSCoding {
     }
     
     
+    func addIngredient(ingredient: Meal) {
+        self.ingredients.append(ingredient);
+    }
     
     struct PropertyKey {
         static let nameKey = "name"
@@ -38,6 +56,7 @@ class Recipe : NSObject, NSCoding {
         aCoder.encodeObject(name, forKey: PropertyKey.nameKey)
         aCoder.encodeObject(photo, forKey: PropertyKey.photoKey)
         aCoder.encodeBool(available, forKey: PropertyKey.availableKey)
+        aCoder.encodeObject(ingredients, forKey: PropertyKey.availableKey)
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
@@ -46,8 +65,9 @@ class Recipe : NSObject, NSCoding {
         // Because photo is an optional property of Meal, use conditional cast.
         let photo = aDecoder.decodeObjectForKey(PropertyKey.photoKey) as? UIImage
         
-        let available = aDecoder.decodeBoolForKey(PropertyKey.availableKey)
-        
+//        let available = aDecoder.decodeBoolForKey(PropertyKey.availableKey) as? Bool
+
+    let available = false
         // Must call designated initializer.
         self.init(name: name, photo: photo, available: available)
     }

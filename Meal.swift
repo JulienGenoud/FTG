@@ -48,4 +48,12 @@ class Meal: NSObject, NSCoding {
         
         // Initialization should fail if there is no name or if the rating is negative.
     }
+    
+    init?(name: String) {
+        // Initialize stored properties.
+        self.name = name
+        
+        super.init()
+        // Initialization should fail if there is no name or if the rating is negative.
+    }
 }

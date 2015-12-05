@@ -9,10 +9,12 @@
 /* Begin PBXBuildFile section */
 		4559A15B1C1125A9002BB3BE /* RecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4559A15A1C1125A9002BB3BE /* RecipeTableViewCell.swift */; };
 		4559A15D1C1126B3002BB3BE /* AvailableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4559A15C1C1126B3002BB3BE /* AvailableButton.swift */; };
-		4559A15F1C1127B7002BB3BE /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4559A15E1C1127B7002BB3BE /* RecipeViewController.swift */; };
 		4559A1611C11291B002BB3BE /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4559A1601C11291B002BB3BE /* Recipe.swift */; };
+		4559A1651C129145002BB3BE /* MealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4559A1641C129145002BB3BE /* MealViewController.swift */; };
+		4559A1671C12CCD8002BB3BE /* IngrendientAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4559A1661C12CCD8002BB3BE /* IngrendientAddView.swift */; };
+		4559A1691C12CE5C002BB3BE /* IngredientAddTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4559A1681C12CE5C002BB3BE /* IngredientAddTableViewCell.swift */; };
 		513121F21C1037660014E60B /* icon in Resources */ = {isa = PBXBuildFile; fileRef = 513121F11C1037660014E60B /* icon */; };
-		513121F41C1039CD0014E60B /* MealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513121F31C1039CC0014E60B /* MealViewController.swift */; };
+		513121F41C1039CD0014E60B /* MealTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513121F31C1039CC0014E60B /* MealTableViewController.swift */; };
 		513121F61C1039DB0014E60B /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513121F51C1039DB0014E60B /* ShopViewController.swift */; };
 		5134E0B71C057183009F3E24 /* MyCustonCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5134E0B61C057183009F3E24 /* MyCustonCellCollectionViewCell.swift */; };
 		5134E0BD1C057C8A009F3E24 /* Ingredient16.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5134E0B81C057C8A009F3E24 /* Ingredient16.jpg */; };
@@ -69,10 +71,12 @@
 /* Begin PBXFileReference section */
 		4559A15A1C1125A9002BB3BE /* RecipeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeTableViewCell.swift; sourceTree = "<group>"; };
 		4559A15C1C1126B3002BB3BE /* AvailableButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvailableButton.swift; sourceTree = "<group>"; };
-		4559A15E1C1127B7002BB3BE /* RecipeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
 		4559A1601C11291B002BB3BE /* Recipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		4559A1641C129145002BB3BE /* MealViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealViewController.swift; sourceTree = "<group>"; };
+		4559A1661C12CCD8002BB3BE /* IngrendientAddView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngrendientAddView.swift; sourceTree = "<group>"; };
+		4559A1681C12CE5C002BB3BE /* IngredientAddTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientAddTableViewCell.swift; sourceTree = "<group>"; };
 		513121F11C1037660014E60B /* icon */ = {isa = PBXFileReference; lastKnownFileType = folder; path = icon; sourceTree = "<group>"; };
-		513121F31C1039CC0014E60B /* MealViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealViewController.swift; sourceTree = "<group>"; };
+		513121F31C1039CC0014E60B /* MealTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealTableViewController.swift; sourceTree = "<group>"; };
 		513121F51C1039DB0014E60B /* ShopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
 		5134E0B61C057183009F3E24 /* MyCustonCellCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCustonCellCollectionViewCell.swift; sourceTree = "<group>"; };
 		5134E0B81C057C8A009F3E24 /* Ingredient16.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Ingredient16.jpg; sourceTree = "<group>"; };
@@ -245,13 +249,15 @@
 				51C587E31C111DAD009F1A8D /* AddMeal.swift */,
 				5134E0B61C057183009F3E24 /* MyCustonCellCollectionViewCell.swift */,
 				51DD0B761C032B7100FF3C5C /* ViewController.swift */,
-				513121F31C1039CC0014E60B /* MealViewController.swift */,
+				513121F31C1039CC0014E60B /* MealTableViewController.swift */,
 				51C587E71C112207009F1A8D /* Meal.swift */,
 				513121F51C1039DB0014E60B /* ShopViewController.swift */,
 				4559A15A1C1125A9002BB3BE /* RecipeTableViewCell.swift */,
 				4559A15C1C1126B3002BB3BE /* AvailableButton.swift */,
-				4559A15E1C1127B7002BB3BE /* RecipeViewController.swift */,
 				4559A1601C11291B002BB3BE /* Recipe.swift */,
+				4559A1641C129145002BB3BE /* MealViewController.swift */,
+				4559A1661C12CCD8002BB3BE /* IngrendientAddView.swift */,
+				4559A1681C12CE5C002BB3BE /* IngredientAddTableViewCell.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -410,12 +416,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4559A1671C12CCD8002BB3BE /* IngrendientAddView.swift in Sources */,
 				5134E0B71C057183009F3E24 /* MyCustonCellCollectionViewCell.swift in Sources */,
-				513121F41C1039CD0014E60B /* MealViewController.swift in Sources */,
-				4559A15F1C1127B7002BB3BE /* RecipeViewController.swift in Sources */,
+				513121F41C1039CD0014E60B /* MealTableViewController.swift in Sources */,
 				513121F61C1039DB0014E60B /* ShopViewController.swift in Sources */,
 				4559A15B1C1125A9002BB3BE /* RecipeTableViewCell.swift in Sources */,
 				51C587E41C111DAD009F1A8D /* AddMeal.swift in Sources */,
+				4559A1691C12CE5C002BB3BE /* IngredientAddTableViewCell.swift in Sources */,
+				4559A1651C129145002BB3BE /* MealViewController.swift in Sources */,
 				51C587E81C112207009F1A8D /* Meal.swift in Sources */,
 				51DD0B7D1C032B7100FF3C5C /* CollectionTraining.xcdatamodeld in Sources */,
 				4559A15D1C1126B3002BB3BE /* AvailableButton.swift in Sources */,
